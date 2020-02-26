@@ -1,2 +1,2 @@
-# big-data-application-development
-course works - Spark [Scala]
+# big-data-application-development [Spark]
+course works
