@@ -6,7 +6,7 @@ val userID = mydata.map(line => line.split(' ')(2))
 val setupCountsRDD = userID.map(field => (field, 1))
 
 // b. Sum the values for each user ID and save the result to an RDD named: requestCountsRDD
-val requestCountsRDD = counts.reduceByKey((v1, v2) => v1+v2)
+val requestCountsRDD = setupCountsRDD.reduceByKey((v1, v2) => v1+v2)
 
 
 // c. Determine how many users visited once, twice, three times, etc. and save the result to an RDD named: visitFrequencyTotalsRDD
@@ -31,4 +31,8 @@ val validAcctsIpsFinalRDD = usedList.join(userID2).map{case (userID, (lst, userI
 
 
 // .take(5).foreach(println)
+setupCountsRDD.take(10)
+requestCountsRDD.take(10)
+visitFrequencyTotalsRDD.collect
+validAcctsIpsFinalRDD.take(5)
 
